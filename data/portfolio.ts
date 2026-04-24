@@ -21,12 +21,13 @@ export type Project = {
 export const profile = {
   name: "Luis Feliciano",
   role: "Software Engineer",
-  headline: "Building beautiful digital experiences.",
+  headline: "Building reliable backend systems.",
   subtitle:
-    "Backend-focused Software Engineer with production experience in multi-tenant systems and a foundation in C-based systems programming.",
+    "Backend-focused Software Engineer with production experience designing and maintaining multi-tenant systems, with a strong foundation in systems programming and data integrity.",
   intro: [
-    "I have contributed across implementation, integration, debugging, validation, and production support in Linux environments, with hands-on experience building backend logic for warehouse and operational workflows.",
-    "My work includes REST APIs, RBAC, transactional integrity, Dockerized development, peer code reviews, and cross-functional collaboration with engineers, project managers, and business analysts in Agile Scrum teams.",
+    "I build backend systems that prioritize correctness, consistency, and reliability. My experience includes implementing business-critical logic in a multi-tenant warehouse management system, enforcing transactional integrity, and preventing invalid resource allocation across distributed workflows.",
+
+  "I have worked across the full software development lifecycle in Linux environments, contributing to REST APIs, RBAC systems, workflow design, and production debugging. I collaborate closely with engineers, project managers, and business analysts to translate operational requirements into robust backend implementations."
   ],
   availability: "Open to software engineering opportunities",
   email: "luisfeli0518@gmail.com",
@@ -52,34 +53,14 @@ export const socialLinks: SocialLink[] = [
 
 export const techStack: TechItem[] = [
   {
-    name: "C",
-    icon: "c",
-    color: "#A8B9CC",
-  },
-  {
-    name: "Python",
-    icon: "python",
-    color: "#3776AB",
+    name: "Laravel",
+    icon: "laravel",
+    color: "#FF2D20",
   },
   {
     name: "PHP",
     icon: "php",
-    color: "#777BB4",
-  },
-  {
-    name: "JavaScript",
-    icon: "javascript",
-    color: "#F7DF1E",
-  },
-  {
-    name: "Linux",
-    icon: "linux",
-    color: "#FCC624",
-  },
-  {
-    name: "Laravel",
-    icon: "laravel",
-    color: "#FF2D20",
+    color: "#3776AB",
   },
   {
     name: "Docker",
@@ -96,6 +77,22 @@ export const techStack: TechItem[] = [
     icon: "mysql",
     color: "#4479A1",
   },
+  {
+    name: "C",
+    icon: "c",
+    color: "#A8B9CC",
+  },
+  {
+    name: "Python",
+    icon: "python",
+    color: "#3776AB",
+  },
+  {
+    name: "Linux",
+    icon: "linux",
+    color: "black",
+  },
+  
   {
     name: "Git",
     icon: "git",
