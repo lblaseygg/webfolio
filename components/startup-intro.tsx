@@ -8,7 +8,7 @@ const helloWords = [
   { text: "hola" },
 ];
 
-const WORD_DURATION_MS = 950;
+const WORD_DURATION_MS = 700;
 const FADE_OUT_MS = 520;
 
 export function StartupIntro() {
