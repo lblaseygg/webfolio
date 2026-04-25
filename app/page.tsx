@@ -19,7 +19,6 @@ import {
   siPython,
   siVuedotjs,
 } from "simple-icons";
-import { StartupIntro } from "@/components/startup-intro";
 
 function ArrowUpRightIcon() {
   return (
@@ -121,13 +120,13 @@ function TechLogo({
 
   return (
     <div
-      className="tech-logo flex h-11 w-11 items-center justify-center rounded-[1rem]"
+      className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]"
       aria-hidden="true"
       title={name}
     >
       <svg
         viewBox="0 0 24 24"
-        className="h-[1.375rem] w-[1.375rem]"
+        className="h-6 w-6"
         fill={color}
         role="img"
         aria-label={name}
@@ -144,23 +143,24 @@ export default function Home() {
 
   return (
     <main className="relative isolate overflow-hidden">
-      <StartupIntro />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[24rem] bg-[radial-gradient(circle_at_50%_0%,_rgba(255,255,255,0.82),_rgba(255,255,255,0.28)_18%,_transparent_58%)]" />
+      <div className="color-band color-band-primary pointer-events-none absolute inset-x-[-12%] top-[-6rem] z-0 h-[24rem]" />
+      <div className="color-band color-band-secondary pointer-events-none absolute left-[-12%] right-[-12%] top-[-3.5rem] z-0 h-[22rem]" />
+      <div className="color-band color-band-accent pointer-events-none absolute inset-x-[-6%] top-[0rem] z-0 h-[12rem]" />
+      <div className="section-glow section-glow-wash pointer-events-none absolute inset-x-0 bottom-0 top-[44rem] z-[1]" />
+      <div className="section-glow section-glow-pink pointer-events-none absolute left-[-10%] top-[54rem] z-[1] h-[30rem] w-[38rem]" />
+      <div className="section-glow section-glow-purple pointer-events-none absolute right-[-12%] top-[88rem] z-[1] h-[34rem] w-[42rem]" />
+      <div className="section-glow section-glow-blue pointer-events-none absolute left-1/2 top-[128rem] z-[1] h-[32rem] w-[46rem] -translate-x-1/2" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[48rem] hero-grid opacity-28 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+
       <SiteNav />
 
-      <div className="startup-intro-content">
-        <div className="hero-spectrum pointer-events-none absolute inset-x-[-12%] top-[-1rem] z-0 h-[24rem]" />
-        <div className="section-glow section-glow-wash pointer-events-none absolute inset-x-0 bottom-0 top-[44rem] z-[1]" />
-        <div className="section-glow section-glow-pink pointer-events-none absolute left-[-10%] top-[54rem] z-[1] h-[30rem] w-[38rem]" />
-        <div className="section-glow section-glow-purple pointer-events-none absolute right-[-12%] top-[88rem] z-[1] h-[34rem] w-[42rem]" />
-        <div className="section-glow section-glow-blue pointer-events-none absolute left-1/2 top-[128rem] z-[1] h-[32rem] w-[46rem] -translate-x-1/2" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[48rem] hero-grid opacity-28 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-2 sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-2 sm:px-8 lg:px-10">
         <div className="pointer-events-none h-4" />
 
         <section className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-6xl items-center px-1 py-16 text-center sm:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="hero-role text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
+            <p className="text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
               {profile.role}
             </p>
             <h1 className="hero-headline mt-6 text-balance text-6xl font-semibold tracking-[-0.075em] text-slate-950 sm:text-7xl lg:text-[6.3rem] lg:leading-[0.94]">
@@ -197,7 +197,7 @@ export default function Home() {
                   {techStack.map((item, index) => (
                     <div
                       key={item.name}
-                      className="tech-card flex min-h-[5.5rem] items-center gap-4 rounded-[1.35rem] px-5 py-4"
+                      className="tech-card group rounded-[1.2rem] p-5 transition duration-300"
                       style={{ transitionDelay: `${index * 30}ms` }}
                     >
                       <TechLogo
@@ -205,7 +205,7 @@ export default function Home() {
                         color={item.color}
                         name={item.name}
                       />
-                      <p className="text-[1.05rem] font-semibold tracking-[-0.035em] text-slate-950">
+                      <p className="mt-5 text-center text-lg font-semibold tracking-[-0.03em] text-slate-950">
                         {item.name}
                       </p>
                     </div>
@@ -247,9 +247,11 @@ export default function Home() {
                         {item.location}
                       </p>
                     ) : null}
-                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                      {item.summary}
-                    </p>
+                    <div className="mt-5 rounded-[1.1rem] border border-white/80 bg-white/72 px-5 py-5 shadow-[0_18px_42px_rgba(15,23,42,0.04)]">
+                      <p className="text-base leading-7 text-slate-600 sm:text-lg">
+                        {item.summary}
+                      </p>
+                    </div>
                     <div className="mt-8 grid gap-5">
                       {item.highlights.map((highlight, highlightIndex) => (
                         <div
@@ -423,8 +425,7 @@ export default function Home() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium !text-white transition hover:bg-slate-800 hover:!text-white"
-                              style={{ color: "#ffffff" }}
+                              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
                             >
                               Live preview
                               <ArrowUpRightIcon />
@@ -484,9 +485,8 @@ export default function Home() {
         </section>
 
         <footer className="pb-10 pt-2 text-center text-sm text-slate-500">
-          <p>© 2025 Luis Feliciano. All rights reserved.</p>
+          <p>© 2026 Luis Feliciano. All rights reserved.</p>
         </footer>
-      </div>
       </div>
     </main>
   );
