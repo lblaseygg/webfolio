@@ -1,6 +1,12 @@
 import { Reveal } from "@/components/reveal";
 import { SiteNav } from "@/components/site-nav";
-import { profile, projects, socialLinks, techStack } from "@/data/portfolio";
+import {
+  experience,
+  profile,
+  projects,
+  socialLinks,
+  techStack,
+} from "@/data/portfolio";
 import {
   siC,
   siDocker,
@@ -13,6 +19,7 @@ import {
   siPython,
   siVuedotjs,
 } from "simple-icons";
+import { StartupIntro } from "@/components/startup-intro";
 
 function ArrowUpRightIcon() {
   return (
@@ -114,13 +121,13 @@ function TechLogo({
 
   return (
     <div
-      className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]"
+      className="tech-logo flex h-11 w-11 items-center justify-center rounded-[1rem]"
       aria-hidden="true"
       title={name}
     >
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6"
+        className="h-[1.375rem] w-[1.375rem]"
         fill={color}
         role="img"
         aria-label={name}
@@ -136,19 +143,24 @@ export default function Home() {
   const secondaryProjects = projects.slice(1);
 
   return (
-    <main className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[48rem] bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.98),_rgba(255,255,255,0.88)_28%,_transparent_68%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-[-12rem] -z-10 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(96,165,250,0.16),_rgba(255,255,255,0)_68%)] blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[56rem] hero-grid opacity-50 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-
+    <main className="relative isolate overflow-hidden">
+      <StartupIntro />
       <SiteNav />
 
-      <div className="mx-auto max-w-7xl px-5 pb-16 pt-5 sm:px-8 lg:px-10">
-        <div className="pointer-events-none h-11" />
+      <div className="startup-intro-content">
+        <div className="hero-spectrum pointer-events-none absolute inset-x-[-12%] top-[-1rem] z-0 h-[24rem]" />
+        <div className="section-glow section-glow-wash pointer-events-none absolute inset-x-0 bottom-0 top-[44rem] z-[1]" />
+        <div className="section-glow section-glow-pink pointer-events-none absolute left-[-10%] top-[54rem] z-[1] h-[30rem] w-[38rem]" />
+        <div className="section-glow section-glow-purple pointer-events-none absolute right-[-12%] top-[88rem] z-[1] h-[34rem] w-[42rem]" />
+        <div className="section-glow section-glow-blue pointer-events-none absolute left-1/2 top-[128rem] z-[1] h-[32rem] w-[46rem] -translate-x-1/2" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[48rem] hero-grid opacity-28 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
 
-        <section className="mx-auto flex min-h-[calc(100vh-2.75rem)] max-w-6xl items-center px-1 py-20 text-center sm:py-24">
+        <div className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-2 sm:px-8 lg:px-10">
+        <div className="pointer-events-none h-4" />
+
+        <section className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-6xl items-center px-1 py-16 text-center sm:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
+            <p className="hero-role text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
               {profile.role}
             </p>
             <h1 className="hero-headline mt-6 text-balance text-6xl font-semibold tracking-[-0.075em] text-slate-950 sm:text-7xl lg:text-[6.3rem] lg:leading-[0.94]">
@@ -185,7 +197,7 @@ export default function Home() {
                   {techStack.map((item, index) => (
                     <div
                       key={item.name}
-                      className="tech-card group rounded-[1.2rem] p-5 transition duration-300"
+                      className="tech-card flex min-h-[5.5rem] items-center gap-4 rounded-[1.35rem] px-5 py-4"
                       style={{ transitionDelay: `${index * 30}ms` }}
                     >
                       <TechLogo
@@ -193,7 +205,7 @@ export default function Home() {
                         color={item.color}
                         name={item.name}
                       />
-                      <p className="mt-5 text-center text-lg font-semibold tracking-[-0.03em] text-slate-950">
+                      <p className="text-[1.05rem] font-semibold tracking-[-0.035em] text-slate-950">
                         {item.name}
                       </p>
                     </div>
@@ -204,7 +216,65 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="work" className="mx-auto max-w-6xl py-10 lg:py-16">
+        <section id="experience" className="mx-auto max-w-6xl py-16 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <p className="text-sm uppercase tracking-[0.34em] text-slate-500">
+                Experience
+              </p>
+              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl">
+                Ethree Solutions
+              </h2>
+            </Reveal>
+
+            <div className="timeline-shell relative pl-6 sm:pl-8">
+              <div className="timeline-line absolute bottom-0 left-0 top-1" />
+              {experience.map((item, index) => (
+                <Reveal
+                  key={`${item.company}-${item.period}`}
+                  delay={80 + index * 80}
+                  className="timeline-entry relative pb-14 last:pb-0"
+                >
+                  <div className="max-w-2xl">
+                    <p className="text-[0.72rem] font-medium uppercase tracking-[0.28em] text-slate-400">
+                      {item.period}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-800 sm:text-3xl">
+                      {item.role}
+                    </h3>
+                    {item.location ? (
+                      <p className="mt-3 text-[0.72rem] uppercase tracking-[0.22em] text-slate-500">
+                        {item.location}
+                      </p>
+                    ) : null}
+                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+                      {item.summary}
+                    </p>
+                    <div className="mt-8 grid gap-5">
+                      {item.highlights.map((highlight, highlightIndex) => (
+                        <div
+                          key={highlight}
+                          className="timeline-highlight border-t border-slate-200/70 pt-5"
+                        >
+                          <div className="flex gap-4">
+                            <div className="pt-0.5 text-[0.68rem] font-medium uppercase tracking-[0.24em] text-slate-400">
+                              {String(highlightIndex + 1).padStart(2, "0")}
+                            </div>
+                            <p className="text-sm leading-6 text-slate-600">
+                              {highlight}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="work" className="mx-auto max-w-6xl py-8 lg:py-12">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-sm uppercase tracking-[0.34em] text-slate-500">
               Selected Work
@@ -216,91 +286,111 @@ export default function Home() {
 
           {featuredProject ? (
             <Reveal className="mt-12" delay={80}>
-              <article className="project-feature overflow-hidden rounded-[1.4rem] p-8 text-white sm:p-10 lg:p-12">
-                <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-                  <div className="max-w-xl">
-                    <p className="text-sm uppercase tracking-[0.32em] text-white/50">
-                      Featured project
+              <article className="project-stage px-5 py-8 text-slate-950 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+                <div className="mx-auto max-w-4xl text-center">
+                  <p className="text-sm uppercase tracking-[0.32em] text-slate-500">
+                    {featuredProject.eyebrow ?? "Featured project"}
+                  </p>
+                  <h3 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">
+                    {featuredProject.name}
+                  </h3>
+                  {featuredProject.summary ? (
+                    <p className="mx-auto mt-5 max-w-3xl text-xl leading-8 text-slate-600">
+                      {featuredProject.summary}
                     </p>
-                    <h3 className="mt-4 text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
-                      {featuredProject.name}
-                    </h3>
-                    <p className="mt-5 text-base leading-7 text-white/68 sm:text-lg">
+                  ) : null}
+                </div>
+
+                <div className="project-media mt-8 overflow-hidden rounded-[1.5rem]">
+                  {featuredProject.mediaUrl ? (
+                    <video
+                      className="h-full w-full object-cover"
+                      src={featuredProject.mediaUrl}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls={false}
+                    />
+                  ) : (
+                    <div className="h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(96,165,250,0.5),_transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03))]" />
+                  )}
+                </div>
+
+                <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div className="max-w-xl">
+                    <p className="text-base leading-8 text-slate-600 sm:text-lg">
                       {featuredProject.description}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-2">
+                    <div className="mt-6 flex flex-wrap gap-2">
                       {featuredProject.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-white/12 bg-white/7 px-3 py-1.5 text-xs font-medium text-white/82"
+                          className="rounded-full border border-slate-200/80 bg-white/76 px-3 py-1.5 text-xs font-medium text-slate-700"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                      <a
-                        href={featuredProject.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950 transition hover:bg-slate-100"
-                      >
-                        Live preview
-                        <ArrowUpRightIcon />
-                      </a>
-                      <a
-                        href={featuredProject.repoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 bg-white/6 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-                      >
-                        View repository
-                        <GitHubIcon />
-                      </a>
-                    </div>
+                    {(featuredProject.liveUrl || featuredProject.repoUrl) && (
+                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                        {featuredProject.liveUrl ? (
+                          <a
+                            href={featuredProject.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-200/30 bg-sky-100/90 px-5 py-3 text-sm font-medium text-slate-950 shadow-[0_10px_30px_rgba(148,163,184,0.16)] transition hover:bg-white"
+                          >
+                            Live preview
+                            <ArrowUpRightIcon />
+                          </a>
+                        ) : null}
+                        {featuredProject.repoUrl ? (
+                          <a
+                            href={featuredProject.repoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
+                          >
+                            View repository
+                            <GitHubIcon />
+                          </a>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
-                    <div className="rounded-[1.2rem] border border-white/12 bg-white/[0.04] p-5">
-                      <div className="flex gap-2">
-                        <span className="h-2 w-2 rounded-full bg-white/30" />
-                        <span className="h-2 w-2 rounded-full bg-white/18" />
-                        <span className="h-2 w-2 rounded-full bg-white/18" />
-                      </div>
-                      <div className="mt-5 h-56 rounded-[1rem] bg-[radial-gradient(circle_at_top_left,_rgba(96,165,250,0.5),_transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03))]" />
-                    </div>
+                  {featuredProject.highlights?.length ? (
                     <div className="grid gap-4">
-                      <div className="rounded-[1.2rem] border border-white/12 bg-white/[0.04] p-5">
-                        <p className="text-xs uppercase tracking-[0.3em] text-white/40">
-                          Stack
-                        </p>
-                        <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
-                          Full-stack
-                        </p>
-                      </div>
-                      <div className="rounded-[1.2rem] border border-white/12 bg-white/[0.04] p-5">
-                        <p className="text-xs uppercase tracking-[0.3em] text-white/40">
-                          Outcome
-                        </p>
-                        <p className="mt-4 text-sm leading-7 text-white/62">
-                          Preserved from the original site, now presented with a
-                          stronger visual hierarchy and cleaner interaction cues.
-                        </p>
-                      </div>
+                      {featuredProject.highlights.map((highlight, highlightIndex) => (
+                        <div
+                          key={highlight}
+                          className="project-detail border-t border-slate-200/80 pt-4"
+                        >
+                          <div className="flex gap-4">
+                            <div className="pt-0.5 text-[0.68rem] font-medium uppercase tracking-[0.24em] text-slate-400">
+                              {String(highlightIndex + 1).padStart(2, "0")}
+                            </div>
+                            <p className="text-sm leading-7 text-slate-600">
+                              {highlight}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  </div>
+                  ) : null}
                 </div>
               </article>
             </Reveal>
           ) : null}
 
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6">
             {secondaryProjects.map((project, index) => (
               <Reveal key={project.name} delay={120 + index * 80}>
-                <article className="project-card h-full rounded-[1.3rem] p-7 sm:p-8">
-                  <div className="flex items-start justify-between gap-4">
+                <article className="project-row rounded-[1.35rem] px-5 py-6">
+                  <div className="grid gap-5 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
                     <div>
                       <p className="text-sm uppercase tracking-[0.3em] text-slate-500">
                         Project {index + 2}
@@ -309,49 +399,51 @@ export default function Home() {
                         {project.name}
                       </h3>
                     </div>
-                    <div className="rounded-full border border-slate-200/80 bg-white/70 p-2 text-slate-500">
-                      <ArrowUpRightIcon />
+
+                    <div className="max-w-3xl">
+                      <p className="text-base leading-8 text-slate-600 sm:text-lg">
+                        {project.description}
+                      </p>
+
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-slate-950/[0.04] px-3 py-1 text-xs font-medium text-slate-700"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {(project.liveUrl || project.repoUrl) && (
+                        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                          {project.liveUrl ? (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium !text-white transition hover:bg-slate-800 hover:!text-white"
+                              style={{ color: "#ffffff" }}
+                            >
+                              Live preview
+                              <ArrowUpRightIcon />
+                            </a>
+                          ) : null}
+                          {project.repoUrl ? (
+                            <a
+                              href={project.repoUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
+                            >
+                              Repository
+                              <GitHubIcon />
+                            </a>
+                          ) : null}
+                        </div>
+                      )}
                     </div>
-                  </div>
-
-                  <p className="mt-5 text-base leading-7 text-slate-600">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-8 rounded-[1rem] border border-white/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(244,246,250,0.88))] p-5">
-                    <div className="h-36 rounded-[0.9rem] bg-[radial-gradient(circle_at_top_left,_rgba(148,163,184,0.22),_transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.05),rgba(15,23,42,0.02))]" />
-                  </div>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-slate-950/[0.04] px-3 py-1 text-xs font-medium text-slate-700"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                    >
-                      Live preview
-                      <ArrowUpRightIcon />
-                    </a>
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
-                    >
-                      Repository
-                      <GitHubIcon />
-                    </a>
                   </div>
                 </article>
               </Reveal>
@@ -394,6 +486,7 @@ export default function Home() {
         <footer className="pb-10 pt-2 text-center text-sm text-slate-500">
           <p>© 2025 Luis Feliciano. All rights reserved.</p>
         </footer>
+      </div>
       </div>
     </main>
   );

@@ -14,8 +14,21 @@ export type Project = {
   name: string;
   description: string;
   tags: string[];
-  liveUrl: string;
-  repoUrl: string;
+  liveUrl?: string;
+  repoUrl?: string;
+  mediaUrl?: string;
+  eyebrow?: string;
+  summary?: string;
+  highlights?: string[];
+};
+
+export type ExperienceItem = {
+  company: string;
+  role: string;
+  period: string;
+  location?: string;
+  summary: string;
+  highlights: string[];
 };
 
 export const profile = {
@@ -25,13 +38,30 @@ export const profile = {
   subtitle:
     "Backend-focused Software Engineer with production experience designing and maintaining multi-tenant systems, with a strong foundation in systems programming and data integrity.",
   intro: [
-    "I build backend systems that prioritize correctness, consistency, and reliability. My experience includes implementing business-critical logic in a multi-tenant warehouse management system, enforcing transactional integrity, and preventing invalid resource allocation across distributed workflows.",
-
-  "I have worked across the full software development lifecycle in Linux environments, contributing to REST APIs, RBAC systems, workflow design, and production debugging. I collaborate closely with engineers, project managers, and business analysts to translate operational requirements into robust backend implementations."
+    "I build backend systems that prioritize correctness, consistency, and reliability. At Ethree Solutions, I contributed to a multi-tenant warehouse management system, implementing business-critical backend logic to enforce data integrity and prevent invalid resource allocation across operational workflows.",
+    "My experience spans implementation, integration, testing, production debugging, and cross-functional delivery in Linux environments. I work closely with engineers, project managers, and business analysts to turn business constraints into robust backend systems."
   ],
   availability: "Open to software engineering opportunities",
   email: "luisfeli0518@gmail.com",
 };
+
+export const experience: ExperienceItem[] = [
+  {
+    company: "Ethree Solutions",
+    role: "Software Engineer Intern",
+    period: "Sept 2025 - Feb 2026",
+    location: "Full Time",
+    summary:
+      "Contributed across multiple phases of the software development lifecycle for a multi-tenant warehouse management system, working on backend logic, integration, debugging, and production support.",
+    highlights: [
+      "Designed and implemented PHP backend logic to enforce data integrity, prevent invalid resource allocation, and maintain transactional consistency across distributed warehouse workflows.",
+      "Developed role-based access control mechanisms that aligned user permissions with system and business requirements.",
+      "Implemented workflow enhancements for inventory cycle counting and multi-LPN processing, adding persistent state tracking and error-handling guards to prevent inconsistencies.",
+      "Worked in a Dockerized development environment with Git-based peer reviews and Agile Scrum practices including standups, sprint planning, and retrospectives.",
+      "Assisted in diagnosing and resolving production defects by tracing application flow, identifying logical inconsistencies, and validating fixes through controlled testing.",
+    ],
+  },
+];
 
 export const socialLinks: SocialLink[] = [
   {
@@ -102,6 +132,29 @@ export const techStack: TechItem[] = [
 
 export const projects: Project[] = [
   {
+    name: "Puerto Rico Coastal Watch",
+    eyebrow: "Most recent project",
+    summary:
+      "A civic intelligence platform for tracking coastal access, development, and public-interest issues across Puerto Rico.",
+    description:
+      "Puerto Rico Coastal Watch is a platform built to help track where illegal construction and harmful development may be taking place on protected coastal land. The system combines a Next.js frontend, a FastAPI backend, a PostgreSQL-backed Docker stack, and worker-driven intake flows to surface, review, and manage public-interest reporting.",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "Docker", "Workers"],
+    mediaUrl: "/assets/puerto-rico-coastal-watch.mp4",
+    repoUrl: "https://github.com/lblaseygg/coastal-watch",
+    highlights: [
+      "Tracks coastal access, development activity, and protected-land concerns across Puerto Rico.",
+      "Supports manual admin workflows for creating, editing, and publishing cases when automation is paused.",
+      "Uses municipality seed data and reporting pipelines to organize investigation and review.",
+    ],
+  },
+  {
+    name: "BudgetCLI",
+    description:
+      "A command-line budgeting tool built as a learning project for recording income and expenses, organizing transactions by category, and reviewing entries directly from the terminal.",
+    tags: ["C#", ".NET", "System.CommandLine", "Spectre.Console", "JSON"],
+    repoUrl: "https://github.com/lblaseygg/BudgetCLI",
+  },
+  {
     name: "AirBnB Clone",
     description:
       "A full-stack AirBnB clone developed during bootcamp. It includes property listings, user authentication, booking flows, and an interactive interface that demonstrates end-to-end product thinking.",
@@ -116,13 +169,5 @@ export const projects: Project[] = [
     tags: ["Python", "HTML", "CSS", "JavaScript"],
     liveUrl: "https://lblaseygg.github.io/Budget-Tracker/",
     repoUrl: "https://github.com/lblaseygg/Budget-Tracker",
-  },
-  {
-    name: "DUO Budget Planner",
-    description:
-      "A budgeting tool for couples to manage shared finances and savings goals together, built around clarity, collaboration, and approachable planning.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://lblaseygg.github.io/Duo-budget-planner/",
-    repoUrl: "https://github.com/lblaseygg/Duo-budget-planner",
   },
 ];
