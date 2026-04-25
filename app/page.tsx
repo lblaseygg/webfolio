@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { SiteNav } from "@/components/site-nav";
+import { StartupIntro } from "@/components/startup-intro";
 import {
   experience,
   profile,
@@ -120,7 +121,7 @@ function TechLogo({
 
   return (
     <div
-      className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]"
+      className="tech-logo flex h-11 w-11 items-center justify-center rounded-[0.95rem]"
       aria-hidden="true"
       title={name}
     >
@@ -143,6 +144,7 @@ export default function Home() {
 
   return (
     <main className="relative isolate overflow-hidden">
+      <StartupIntro />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[24rem] bg-[radial-gradient(circle_at_50%_0%,_rgba(255,255,255,0.82),_rgba(255,255,255,0.28)_18%,_transparent_58%)]" />
       <div className="color-band color-band-primary pointer-events-none absolute inset-x-[-12%] top-[-6rem] z-0 h-[24rem]" />
       <div className="color-band color-band-secondary pointer-events-none absolute left-[-12%] right-[-12%] top-[-3.5rem] z-0 h-[22rem]" />
@@ -155,12 +157,12 @@ export default function Home() {
 
       <SiteNav />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-2 sm:px-8 lg:px-10">
+      <div className="startup-intro-content relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-2 sm:px-8 lg:px-10">
         <div className="pointer-events-none h-4" />
 
         <section className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-6xl items-center px-1 py-16 text-center sm:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
+            <p className="hero-role text-sm font-medium uppercase tracking-[0.34em] text-slate-500">
               {profile.role}
             </p>
             <h1 className="hero-headline mt-6 text-balance text-6xl font-semibold tracking-[-0.075em] text-slate-950 sm:text-7xl lg:text-[6.3rem] lg:leading-[0.94]">
@@ -197,7 +199,7 @@ export default function Home() {
                   {techStack.map((item, index) => (
                     <div
                       key={item.name}
-                      className="tech-card group rounded-[1.2rem] p-5 transition duration-300"
+                      className="tech-card group flex items-center gap-4 rounded-[1.2rem] px-5 py-4 transition duration-300"
                       style={{ transitionDelay: `${index * 30}ms` }}
                     >
                       <TechLogo
@@ -205,9 +207,11 @@ export default function Home() {
                         color={item.color}
                         name={item.name}
                       />
-                      <p className="mt-5 text-center text-lg font-semibold tracking-[-0.03em] text-slate-950">
-                        {item.name}
-                      </p>
+                      <div className="min-w-0 text-left">
+                        <p className="text-lg font-semibold tracking-[-0.03em] text-slate-950">
+                          {item.name}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -247,11 +251,9 @@ export default function Home() {
                         {item.location}
                       </p>
                     ) : null}
-                    <div className="mt-5 rounded-[1.1rem] border border-white/80 bg-white/72 px-5 py-5 shadow-[0_18px_42px_rgba(15,23,42,0.04)]">
-                      <p className="text-base leading-7 text-slate-600 sm:text-lg">
-                        {item.summary}
-                      </p>
-                    </div>
+                    <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
+                      {item.summary}
+                    </p>
                     <div className="mt-8 grid gap-5">
                       {item.highlights.map((highlight, highlightIndex) => (
                         <div
@@ -343,7 +345,7 @@ export default function Home() {
                             href={featuredProject.liveUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-200/30 bg-sky-100/90 px-5 py-3 text-sm font-medium text-slate-950 shadow-[0_10px_30px_rgba(148,163,184,0.16)] transition hover:bg-white"
+                            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-5 py-3 text-sm font-medium !text-white shadow-[0_10px_30px_rgba(15,23,42,0.16)] transition hover:bg-slate-800 hover:!text-white"
                           >
                             Live preview
                             <ArrowUpRightIcon />
@@ -425,7 +427,7 @@ export default function Home() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-5 py-3 text-sm font-medium !text-white transition hover:bg-slate-800 hover:!text-white"
                             >
                               Live preview
                               <ArrowUpRightIcon />

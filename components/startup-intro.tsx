@@ -8,8 +8,9 @@ const helloWords = [
   { text: "hola" },
 ];
 
-const WORD_DURATION_MS = 700;
-const FADE_OUT_MS = 520;
+const INTRO_LEAD_IN_MS = 420;
+const WORD_DURATION_MS = 500;
+const FADE_OUT_MS = 260;
 
 export function StartupIntro() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -37,20 +38,20 @@ export function StartupIntro() {
       timers.push(
         window.setTimeout(() => {
           setActiveIndex(index);
-        }, index * WORD_DURATION_MS),
+        }, INTRO_LEAD_IN_MS + index * WORD_DURATION_MS),
       );
     });
 
     timers.push(
       window.setTimeout(() => {
         root.dataset.startupIntro = "done";
-      }, helloWords.length * WORD_DURATION_MS),
+      }, INTRO_LEAD_IN_MS + helloWords.length * WORD_DURATION_MS),
     );
 
     timers.push(
       window.setTimeout(() => {
         setHidden(true);
-      }, helloWords.length * WORD_DURATION_MS + FADE_OUT_MS),
+      }, INTRO_LEAD_IN_MS + helloWords.length * WORD_DURATION_MS + FADE_OUT_MS),
     );
 
     return () => {
