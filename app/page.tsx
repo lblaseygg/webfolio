@@ -345,7 +345,7 @@ export default function Home() {
                             href={featuredProject.liveUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-5 py-3 text-sm font-medium !text-white shadow-[0_10px_30px_rgba(15,23,42,0.16)] transition hover:bg-slate-800 hover:!text-white"
+                            className="contact-glass-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
                           >
                             Live preview
                             <ArrowUpRightIcon />
@@ -356,7 +356,7 @@ export default function Home() {
                             href={featuredProject.repoUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
+                            className="contact-glass-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
                           >
                             View repository
                             <GitHubIcon />
@@ -427,7 +427,7 @@ export default function Home() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-5 py-3 text-sm font-medium !text-white transition hover:bg-slate-800 hover:!text-white"
+                              className="contact-glass-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
                             >
                               Live preview
                               <ArrowUpRightIcon />
@@ -438,7 +438,7 @@ export default function Home() {
                               href={project.repoUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
+                              className="contact-glass-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
                             >
                               Repository
                               <GitHubIcon />
@@ -475,7 +475,7 @@ export default function Home() {
                     href={link.href}
                     target={link.kind === "email" ? undefined : "_blank"}
                     rel={link.kind === "email" ? undefined : "noreferrer"}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-50 px-5 py-3 text-sm font-medium text-sky-700 transition hover:bg-sky-600 hover:text-white"
+                    className="contact-glass-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
                   >
                     <SocialIcon kind={link.kind} />
                     {link.label}
