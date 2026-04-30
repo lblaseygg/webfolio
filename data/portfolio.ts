@@ -36,7 +36,7 @@ export const profile = {
   role: "Software Engineer",
   headline: "Building reliable backend systems.",
   subtitle:
-    "Backend-focused Software Engineer with production experience designing and maintaining multi-tenant systems, with a strong foundation in systems programming and data integrity.",
+    "Backend-focused Software Engineer with experience in multi-tenant systems and data integrity, actively developing expertise in cloud infrastructure, containerization, and scalable backend deployment on AWS.",
   intro: [
     "I build backend systems that prioritize correctness, consistency, and reliability. At Ethree Solutions, I contributed to a multi-tenant warehouse management system, implementing business-critical backend logic to enforce data integrity and prevent invalid resource allocation across operational workflows.",
     "My experience spans implementation, integration, testing, production debugging, and cross-functional delivery in Linux environments. I work closely with engineers, project managers, and business analysts to turn business constraints into robust backend systems."
@@ -83,34 +83,9 @@ export const socialLinks: SocialLink[] = [
 
 export const techStack: TechItem[] = [
   {
-    name: "Laravel",
-    icon: "laravel",
-    color: "#FF2D20",
-  },
-  {
     name: "PHP",
     icon: "php",
-    color: "#3776AB",
-  },
-  {
-    name: "Docker",
-    icon: "docker",
-    color: "#2496ED",
-  },
-  {
-    name: "Vue.js",
-    icon: "vue",
-    color: "#4FC08D",
-  },
-  {
-    name: "MySQL",
-    icon: "mysql",
-    color: "#4479A1",
-  },
-  {
-    name: "C",
-    icon: "c",
-    color: "#A8B9CC",
+    color: "#777BB4",
   },
   {
     name: "Python",
@@ -118,15 +93,79 @@ export const techStack: TechItem[] = [
     color: "#3776AB",
   },
   {
+    name: "AWS",
+    icon: "aws",
+    color: "#FF9900",
+  },
+  {
+    name: "TypeScript",
+    icon: "typescript",
+    color: "#3178C6",
+  },
+  {
+    name: "Laravel",
+    icon: "laravel",
+    color: "#FF2D20",
+  },
+  {
+    name: "REST APIs",
+    icon: "rest",
+    color: "#6B7280",
+  },
+  {
+    name: "JavaScript",
+    icon: "javascript",
+    color: "#F7DF1E",
+  },
+  {
+    name: "SQL",
+    icon: "sql",
+    color: "#475569",
+  },
+  {
+    name: "MySQL",
+    icon: "mysql",
+    color: "#4479A1",
+  },
+  {
+    name: "PostgreSQL",
+    icon: "postgresql",
+    color: "#4169E1",
+  },
+  {
+    name: "Docker",
+    icon: "docker",
+    color: "#2496ED",
+  },
+  {
     name: "Linux",
     icon: "linux",
     color: "black",
   },
-  
   {
     name: "Git",
     icon: "git",
     color: "#F05032",
+  },
+  {
+    name: "Vue.js",
+    icon: "vue",
+    color: "#4FC08D",
+  },
+  {
+    name: "HTML",
+    icon: "html",
+    color: "#E34F26",
+  },
+  {
+    name: "CSS",
+    icon: "css",
+    color: "#1572B6",
+  },
+  {
+    name: "C",
+    icon: "c",
+    color: "#A8B9CC",
   },
 ];
 
