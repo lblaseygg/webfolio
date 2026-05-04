@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { SiteNav } from "@/components/site-nav";
 import { StartupIntro } from "@/components/startup-intro";
@@ -472,6 +473,7 @@ export default function Home() {
                     </div>
                   ) : null}
                 </div>
+
               </article>
             </Reveal>
           ) : null}
@@ -491,6 +493,25 @@ export default function Home() {
                     </div>
 
                     <div className="max-w-3xl">
+                      {project.eyebrow ? (
+                        <p className="mb-3 text-sm uppercase tracking-[0.28em] text-slate-500">
+                          {project.eyebrow}
+                        </p>
+                      ) : null}
+
+                      {project.mediaUrl ? (
+                        <div className="project-media mb-6 overflow-hidden rounded-[1.35rem] border border-slate-200/80 bg-white/80 p-3 sm:p-4">
+                          <Image
+                            src={project.mediaUrl}
+                            alt={`${project.name} diagram`}
+                            width={1582}
+                            height={693}
+                            className="h-auto w-full object-contain"
+                            unoptimized
+                          />
+                        </div>
+                      ) : null}
+
                       <p className="text-base leading-8 text-slate-600 sm:text-lg">
                         {project.description}
                       </p>
@@ -505,6 +526,26 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
+
+                      {project.highlights?.length ? (
+                        <div className="mt-6 grid gap-4">
+                          {project.highlights.map((highlight, highlightIndex) => (
+                            <div
+                              key={highlight}
+                              className="border-t border-slate-200/80 pt-4"
+                            >
+                              <div className="flex gap-4">
+                                <div className="pt-0.5 text-[0.68rem] font-medium uppercase tracking-[0.24em] text-slate-400">
+                                  {String(highlightIndex + 1).padStart(2, "0")}
+                                </div>
+                                <p className="text-sm leading-7 text-slate-600">
+                                  {highlight}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
 
                       {(project.liveUrl || project.repoUrl) && (
                         <div className="mt-6 flex flex-col gap-3 sm:flex-row">

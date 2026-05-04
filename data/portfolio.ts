@@ -187,6 +187,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "AWS Deployment Architecture for Coastal Watch",
+    eyebrow: "Cloud architecture artifact",
+    description:
+      "A system design artifact that documents the AWS service layout behind Coastal Watch, showing how the containerized backend is structured for deployment, configuration, and operational clarity.",
+    tags: ["AWS", "ECS", "ECR", "SSM", "System Design"],
+    mediaUrl: "/assets/coastal-watch-aws-architecture.svg",
+    repoUrl: "https://github.com/lblaseygg/coastal-watch",
+    highlights: [
+      "Maps the cloud components used to run and support the application in AWS.",
+      "Demonstrates understanding of container deployment flow, image registry usage, and configuration management.",
+      "Acts as a technical communication artifact for explaining infrastructure decisions in interviews and reviews.",
+    ],
+  },
+  {
     name: "BudgetCLI",
     description:
       "A command-line budgeting tool built as a learning project for recording income and expenses, organizing transactions by category, and reviewing entries directly from the terminal.",
@@ -200,13 +214,5 @@ export const projects: Project[] = [
     tags: ["Python", "HTML", "CSS", "JavaScript", "MySQL"],
     liveUrl: "https://lblaseygg.github.io/holberton-hbnb/login.html",
     repoUrl: "https://github.com/lblaseygg/holberton-hbnb",
-  },
-  {
-    name: "Budget Tracker",
-    description:
-      "A personal finance application for tracking expenses, setting budgets, and visualizing spending patterns with a simpler, more informative user experience.",
-    tags: ["Python", "HTML", "CSS", "JavaScript"],
-    liveUrl: "https://lblaseygg.github.io/Budget-Tracker/",
-    repoUrl: "https://github.com/lblaseygg/Budget-Tracker",
   },
 ];
