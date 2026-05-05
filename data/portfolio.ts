@@ -201,6 +201,18 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Minty",
+    description:
+      "An AI-powered stock trading platform that combines live market data, paper trading, and machine learning-driven forecasting to simulate trading workflows and surface buy, sell, and hold recommendations.",
+    tags: ["Python", "Flask", "MySQL", "scikit-learn", "XGBoost", "Chart.js"],
+    repoUrl: "https://github.com/lblaseygg/minty",
+    highlights: [
+      "Uses Yahoo Finance market data together with machine learning models to generate prediction-driven trading insights.",
+      "Supports paper trading, portfolio tracking, and order management flows for experimenting with AI-assisted trading decisions.",
+      "Combines a Flask API, MySQL persistence layer, and browser-based dashboard for a full-stack trading experience.",
+    ],
+  },
+  {
     name: "BudgetCLI",
     description:
       "A command-line budgeting tool built as a learning project for recording income and expenses, organizing transactions by category, and reviewing entries directly from the terminal.",
