@@ -176,12 +176,14 @@ export const projects: Project[] = [
     summary:
       "A civic intelligence platform for tracking coastal access, development, and public-interest issues across Puerto Rico.",
     description:
-      "Puerto Rico Coastal Watch is a platform built to help track where illegal construction and harmful development may be taking place on protected coastal land. The system combines a Next.js frontend, a FastAPI backend, a PostgreSQL-backed Docker stack, and worker-driven intake flows to surface, review, and manage public-interest reporting.",
+      "Puerto Rico Coastal Watch is a platform built to help track where illegal construction and harmful development may be taking place on protected coastal land. The system combines a Next.js frontend, a FastAPI backend, a PostgreSQL-backed Docker stack, AWS deployment infrastructure, and worker-driven intake flows to surface, review, and manage public-interest reporting.",
     tags: ["Next.js", "FastAPI", "PostgreSQL", "Docker", "Workers"],
     mediaUrl: "/assets/puerto-rico-coastal-watch.mp4",
+    liveUrl: "https://main.dibozvb639fjz.amplifyapp.com",
     repoUrl: "https://github.com/lblaseygg/coastal-watch",
     highlights: [
       "Tracks coastal access, development activity, and protected-land concerns across Puerto Rico.",
+      "Deployed on AWS, with a live cloud-hosted environment supporting the current public build.",
       "Supports manual admin workflows for creating, editing, and publishing cases when automation is paused.",
       "Uses municipality seed data and reporting pipelines to organize investigation and review.",
     ],
