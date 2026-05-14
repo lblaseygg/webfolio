@@ -203,6 +203,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Aegis CLI",
+    eyebrow: "Private AI operations toolkit",
+    description:
+      "A self-hosted local LLM operations toolkit for private AI workflows, built to support offline or isolated deployments with an operator-friendly CLI, document-grounded RAG, and flexible local, remote, and Docker runtime modes.",
+    tags: ["TypeScript", "Ink", "FastAPI", "Ollama", "Docker", "ChromaDB"],
+    mediaUrl: "/assets/aegis-showcasse.mp4",
+    repoUrl: "https://github.com/lblaseygg/aegis",
+    highlights: [
+      "Combines an Ink-powered TypeScript CLI with a FastAPI RAG service to support interactive AI operations from the terminal.",
+      "Integrates Ollama, offline document retrieval, and isolated deployment flows for secure local or air-gapped AI usage.",
+      "Supports local, remote-over-SSH, and Docker runtime modes for deploying and operating LLM-backed workflows in different environments.",
+    ],
+  },
+  {
     name: "Minty",
     description:
       "An AI-powered stock trading platform that combines live market data, paper trading, and machine learning-driven forecasting to simulate trading workflows and surface buy, sell, and hold recommendations.",
@@ -213,20 +227,5 @@ export const projects: Project[] = [
       "Supports paper trading, portfolio tracking, and order management flows for experimenting with AI-assisted trading decisions.",
       "Combines a Flask API, MySQL persistence layer, and browser-based dashboard for a full-stack trading experience.",
     ],
-  },
-  {
-    name: "BudgetCLI",
-    description:
-      "A command-line budgeting tool built as a learning project for recording income and expenses, organizing transactions by category, and reviewing entries directly from the terminal.",
-    tags: ["C#", ".NET", "System.CommandLine", "Spectre.Console", "JSON"],
-    repoUrl: "https://github.com/lblaseygg/BudgetCLI",
-  },
-  {
-    name: "AirBnB Clone",
-    description:
-      "A full-stack AirBnB clone developed during bootcamp. It includes property listings, user authentication, booking flows, and an interactive interface that demonstrates end-to-end product thinking.",
-    tags: ["Python", "HTML", "CSS", "JavaScript", "MySQL"],
-    liveUrl: "https://lblaseygg.github.io/holberton-hbnb/login.html",
-    repoUrl: "https://github.com/lblaseygg/holberton-hbnb",
   },
 ];

@@ -501,14 +501,26 @@ export default function Home() {
 
                       {project.mediaUrl ? (
                         <div className="project-media mb-6 overflow-hidden rounded-[1.35rem] border border-slate-200/80 bg-white/80 p-3 sm:p-4">
-                          <Image
-                            src={project.mediaUrl}
-                            alt={`${project.name} diagram`}
-                            width={1582}
-                            height={693}
-                            className="h-auto w-full object-contain"
-                            unoptimized
-                          />
+                          {project.mediaUrl.endsWith(".mp4") ? (
+                            <video
+                              className="h-full w-full rounded-[0.9rem] object-cover"
+                              src={project.mediaUrl}
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              controls={false}
+                            />
+                          ) : (
+                            <Image
+                              src={project.mediaUrl}
+                              alt={`${project.name} diagram`}
+                              width={1582}
+                              height={693}
+                              className="h-auto w-full object-contain"
+                              unoptimized
+                            />
+                          )}
                         </div>
                       ) : null}
 
