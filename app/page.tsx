@@ -10,20 +10,13 @@ import {
   techStack,
 } from "@/data/portfolio";
 import {
-  siC,
-  siCss,
   siDocker,
-  siGit,
-  siHtml5,
   siJavascript,
   siLaravel,
-  siLinux,
-  siMysql,
-  siPostgresql,
   siPhp,
   siPython,
+  siReact,
   siTypescript,
-  siVuedotjs,
 } from "simple-icons";
 
 function ArrowUpRightIcon() {
@@ -102,6 +95,10 @@ function SocialIcon({ kind }: { kind: "email" | "linkedin" | "github" }) {
 
 type TechIconDefinition =
   | {
+      image: string;
+      className?: string;
+    }
+  | {
       path: string;
       viewBox?: string;
       className?: string;
@@ -134,33 +131,14 @@ const techIcons: Record<string, TechIconDefinition> = {
       },
     ],
   },
-  c: siC,
-  css: siCss,
+  azure: { image: "/assets/azure-a.svg" },
   python: siPython,
   php: siPhp,
   javascript: siJavascript,
+  react: siReact,
   typescript: siTypescript,
-  linux: siLinux,
   laravel: siLaravel,
   docker: siDocker,
-  vue: siVuedotjs,
-  html: siHtml5,
-  mysql: siMysql,
-  postgresql: siPostgresql,
-  git: siGit,
-  rest: {
-    viewBox: "0 0 24 24",
-    paths: [
-      {
-        fill: "#475569",
-        d: "M12 3.5a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5ZM5.5 14a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5Zm13 0a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5Zm-7.16-5.13-3.36 4.98c.38.2.74.45 1.05.75L12 10.1l2.97 4.5c.31-.3.67-.55 1.05-.75l-3.36-4.98a4.2 4.2 0 0 1-1.32 0Z",
-      },
-      {
-        fill: "#0EA5E9",
-        d: "M12 10.75 13.75 12 12 13.25 10.25 12 12 10.75Z",
-      },
-    ],
-  },
   sql: {
     viewBox: "0 0 24 24",
     paths: [
@@ -193,7 +171,17 @@ function TechLogo({
       aria-hidden="true"
       title={name}
     >
-      {"paths" in logo ? (
+      {"image" in logo ? (
+        <span className="block h-6 w-6">
+          <Image
+            src={logo.image}
+            alt=""
+            width={24}
+            height={24}
+            className="h-6 w-6"
+          />
+        </span>
+      ) : "paths" in logo ? (
         <svg
           viewBox={logo.viewBox}
           className={logo.className ?? "h-6 w-6"}
@@ -305,24 +293,34 @@ export default function Home() {
         </section>
 
         <section id="experience" className="mx-auto max-w-6xl py-16 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-sm uppercase tracking-[0.34em] text-slate-500">
-                Experience
-              </p>
-              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl">
-                Ethree Solutions
-              </h2>
-            </Reveal>
-
-            <div className="timeline-shell relative pl-6 sm:pl-8">
-              <div className="timeline-line absolute bottom-0 left-0 top-1" />
-              {experience.map((item, index) => (
+          <div className="relative">
+            <div className="experience-timeline-line timeline-line absolute bottom-0 top-1" />
+            {experience.map((item, index) => (
+              <div
+                key={`${item.company}-${item.period}`}
+                className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12"
+              >
                 <Reveal
-                  key={`${item.company}-${item.period}`}
                   delay={80 + index * 80}
-                  className="timeline-entry relative pb-14 last:pb-0"
+                  className="lg:pt-5"
                 >
+                  {index === 0 ? (
+                    <p className="text-sm uppercase tracking-[0.34em] text-slate-500">
+                      Experience
+                    </p>
+                  ) : null}
+                  <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl">
+                    {item.company}
+                  </h2>
+                </Reveal>
+
+                <Reveal
+                  delay={80 + index * 80}
+                  className={`timeline-shell timeline-entry relative pl-6 sm:pl-8 ${
+                    index === experience.length - 1 ? "" : "pb-14"
+                  }`}
+                >
+                  <div className="timeline-line absolute bottom-0 left-0 top-1 lg:hidden" />
                   <div className="max-w-2xl">
                     <p className="text-[0.72rem] font-medium uppercase tracking-[0.28em] text-slate-400">
                       {item.period}
@@ -357,8 +355,8 @@ export default function Home() {
                     </div>
                   </div>
                 </Reveal>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 

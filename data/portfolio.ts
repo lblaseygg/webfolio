@@ -47,6 +47,21 @@ export const profile = {
 
 export const experience: ExperienceItem[] = [
   {
+    company: "Infinigen Energy",
+    role: "AI Integrations",
+    period: "Jun 2026 - Present",
+    location: "Full Time",
+    summary:
+      "Designed and delivered Atlas, an internal, document-grounded AI platform for engineering knowledge retrieval, secure document ingestion, and operational reporting.",
+    highlights: [
+      "Built a Retrieval-Augmented Generation platform using TypeScript, PostgreSQL with pgvector, Azure Container Apps, Blob Storage, and self-hosted Qwen and Mistral model services.",
+      "Designed the NetDocuments ingestion pipeline with OAuth integration, durable batch runs, Docling Markdown conversion, structure-aware chunking, quality validation, and batched embeddings.",
+      "Implemented Entra ID authentication and role-based access control for administrators, auditors, support users, and document managers.",
+      "Developed operational and compliance capabilities including immutable audit events, human-readable audit receipts, ingestion controls, and an internal metrics dashboard for retrieval and latency health.",
+      "Deployed and operated Atlas on Azure with private internal model endpoints, managed identities, Key Vault-backed configuration, PostgreSQL migrations, Azure Files model caching, and production CORS controls.",
+    ],
+  },
+  {
     company: "Ethree Solutions",
     role: "Software Engineer Intern",
     period: "Sept 2025 - Feb 2026",
@@ -103,14 +118,14 @@ export const techStack: TechItem[] = [
     color: "#3178C6",
   },
   {
+    name: "React",
+    icon: "react",
+    color: "#61DAFB",
+  },
+  {
     name: "Laravel",
     icon: "laravel",
     color: "#FF2D20",
-  },
-  {
-    name: "REST APIs",
-    icon: "rest",
-    color: "#6B7280",
   },
   {
     name: "JavaScript",
@@ -123,49 +138,14 @@ export const techStack: TechItem[] = [
     color: "#475569",
   },
   {
-    name: "MySQL",
-    icon: "mysql",
-    color: "#4479A1",
-  },
-  {
-    name: "PostgreSQL",
-    icon: "postgresql",
-    color: "#4169E1",
-  },
-  {
     name: "Docker",
     icon: "docker",
     color: "#2496ED",
   },
   {
-    name: "Linux",
-    icon: "linux",
-    color: "black",
-  },
-  {
-    name: "Git",
-    icon: "git",
-    color: "#F05032",
-  },
-  {
-    name: "Vue.js",
-    icon: "vue",
-    color: "#4FC08D",
-  },
-  {
-    name: "HTML",
-    icon: "html",
-    color: "#E34F26",
-  },
-  {
-    name: "CSS",
-    icon: "css",
-    color: "#1572B6",
-  },
-  {
-    name: "C",
-    icon: "c",
-    color: "#A8B9CC",
+    name: "Azure",
+    icon: "azure",
+    color: "#0078D4",
   },
 ];
 

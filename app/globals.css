@@ -573,13 +573,18 @@ html[data-startup-intro="done"] .startup-intro-overlay {
 
 .timeline-line {
   width: 1px;
-  background: linear-gradient(
-    180deg,
-    rgba(168, 85, 247, 0.24),
-    rgba(236, 72, 153, 0.18) 18%,
-    rgba(96, 165, 250, 0.16) 78%,
-    rgba(203, 213, 225, 0.08)
-  );
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.experience-timeline-line {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .experience-timeline-line {
+    display: block;
+    left: calc((100% - 3rem) * 0.4 + 3rem);
+  }
 }
 
 .timeline-highlight {
